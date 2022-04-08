@@ -24,12 +24,20 @@ for word in words:
   score = resp.json()
   
   if 'score' in score:
-    if score['score'] > 0.5:
-      print(f"{word} --> {score['score']}")
-    
-    if score['score'] == 1:
-      print(f'Result: {word}')
+    if score['score'] < 0.2652:
+      print(f"{word} : {score['score']} 🥶")
+    elif score['score'] < 0.4527:
+      print(f"{word} : {score['score']} 😎")
+    elif score['score'] < 0.6231:
+      print(f"{word} : {score['score']} 🥵")
+    elif score['score'] < 0.7679:
+      print(f"{word} : {score['score']} 🔥")
+    elif score['score'] < 1:
+      print(f"{word} : {score['score']} 😱")
+    elif score['score'] == 1:
+      print(f'Result: {word} 🥳')
       break
+    
  
 # Closing file
 file.close()
