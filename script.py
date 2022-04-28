@@ -1,10 +1,6 @@
-import os
 import requests
 import json
 from requests.structures import CaseInsensitiveDict
-
-# Clear terminal
-os.system('clear')
 
 # Opening JSON file
 file = open('index.json')
