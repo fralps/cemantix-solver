@@ -40,7 +40,7 @@ def main():
     
     if 'score' in score:
       print(f"{word} ➡️ {score['score']}")
-      if score['score'] > 0.1:
+      if score['score'] == 1:
         print(f'Result: {word} 🥳')
         # send_result(word)
         break
