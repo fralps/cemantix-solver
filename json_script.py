@@ -3,7 +3,7 @@ import json
 from requests.structures import CaseInsensitiveDict
 
 # Opening JSON file
-file = open('index.json')
+file = open('dictionnaries/fat_list.json')
  
 # Returns JSON object as a dictionary
 words = json.load(file)

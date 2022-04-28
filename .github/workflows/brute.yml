@@ -1,4 +1,4 @@
-name: Cemantix solver
+name: Brute solver
 on:
   push:
     branches:
@@ -9,15 +9,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: ⚙️ Checkout repo
         uses: actions/checkout@v2
-      - name: Setup Python
+      - name: 🐍  Setup Python
         uses: actions/setup-python@v2
         with:
           python-version: 3.8
-      - name: Install dependencies
+      - name: 🧰 Install dependencies
         run: |
           pip3 install requests
-      - name: 🐍 Execute python script
+      - name: 🏋️‍♂️ Execute brute python script
         run: |
-          python3 script.py
+          python3 brute.py
