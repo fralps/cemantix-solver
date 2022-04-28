@@ -40,35 +40,24 @@ def main():
     
     if 'score' in score:
       print(f"{word} ➡️ {score['score']}")
-      if score['score'] == 1:
+      if score['score'] > 0.1:
         print(f'Result: {word} 🥳')
         # send_result(word)
         break
 
 
 def send_result(result):
-  # The email addresses and password
-  gmail_port = 587
-
-  receiver_address = 'cemantixsolver@yopmail.com'
-  mail_content = f'Result of the day.... {result} 🎉'
-
-  # Setup the MIME
-  message = MIMEMultipart()
-  message['From'] = SENDER_ADDRESS
-  message['To'] = SENDER_PASSWORD
-  message['Subject'] = 'Cemantix results'
-
-  # The body and the attachments for the mail
-  message.attach(MIMEText(mail_content, 'plain'))
-
-  # Create SMTP session for sending the mail
-  session = smtplib.SMTP('smtp.gmail.com', gmail_port)
-  session.starttls() # enable security
-  session.login(SENDER_ADDRESS, SENDER_PASSWORD)
-  text = message.as_string()
-  session.sendmail(SENDER_ADDRESS, receiver_address, text)
-  session.quit()
+  port_number = 1234
+  msg = MIMEMultipart()
+  msg['From'] = SENDER_ADDRESS
+  msg['To'] = 'cemantixsolver@yopmail.com'
+  msg['Subject'] = 'Result of the day'
+  message = f'The result is: {result} 🎉'
+  msg.attach(MIMEText(message))
+  mailserver = smtplib.SMTP('localhost', port_number)
+  mailserver.login(SENDER_ADDRESS, SENDER_PASSWORD)
+  mailserver.sendmail(SENDER_ADDRESS, 'cemantixsolver@yopmail.com', msg.as_string())
+  mailserver.quit()
 
   print('Email Sent')
 
