@@ -18,6 +18,10 @@ jobs:
       - name: 🧰 Install dependencies
         run: |
           pip3 install requests
+          pip3 install python-dotenv
       - name: 🏋️‍♂️ Execute brute python script
         run: |
           python3 brute.py
+        env:
+          SENDER_ADDRESS: ${{ secrets.SENDER_ADDRESS }}
+          SENDER_PASSWORD: ${{ secrets.SENDER_PASSWORD }}

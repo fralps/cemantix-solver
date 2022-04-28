@@ -18,6 +18,7 @@ jobs:
       - name: 🧰 Install dependencies
         run: |
           pip3 install requests
+          pip3 install python-dotenv
       - name: 🏋️‍♂️ Execute reverse brute python script
         run: |
           python3 reverse_brute.py

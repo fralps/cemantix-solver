@@ -1,5 +1,15 @@
+import os
 import requests
 from requests.structures import CaseInsensitiveDict
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from dotenv import load_dotenv
+
+load_dotenv()
+
+SENDER_ADDRESS = os.getenv('SENDER_ADDRESS')
+SENDER_PASSWORD = os.getenv('SENDER_PASSWORD')
 
 # Prepare words list
 words = []
@@ -32,6 +42,34 @@ def main():
       print(f"{word} ➡️ {score['score']}")
       if score['score'] > 0.10:
         print(f'Result: {word} 🥳')
+        send_result(word)
         break
+
+
+def send_result(result):
+  # The email addresses and password
+  gmail_port = 587
+
+  receiver_address = 'cemantixsolver@yopmail.com'
+  mail_content = f'Result of the day.... {result} 🎉'
+
+  # Setup the MIME
+  message = MIMEMultipart()
+  message['From'] = SENDER_ADDRESS
+  message['To'] = SENDER_PASSWORD
+  message['Subject'] = 'Cemantix results'
+
+  # The body and the attachments for the mail
+  message.attach(MIMEText(mail_content, 'plain'))
+
+  # Create SMTP session for sending the mail
+  session = smtplib.SMTP('smtp.gmail.com', gmail_port)
+  session.starttls() # enable security
+  session.login(SENDER_ADDRESS, SENDER_PASSWORD)
+  text = message.as_string()
+  session.sendmail(SENDER_ADDRESS, receiver_address, text)
+  session.quit()
+
+  print('Email Sent')
 
 main()
