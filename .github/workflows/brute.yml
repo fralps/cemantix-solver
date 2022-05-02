@@ -4,7 +4,7 @@ on:
     branches:
       - 'main'
   schedule:
-    - cron: '0 4 * * *'
+    - cron: '0 2 * * *'
 
 jobs:
   build:
@@ -24,6 +24,3 @@ jobs:
       - name: 🏋️‍♂️ Execute brute python script
         run: |
           python3 brute.py
-        env:
-          SENDER_ADDRESS: ${{ secrets.SENDER_ADDRESS }}
-          SENDER_PASSWORD: ${{ secrets.SENDER_PASSWORD }}
