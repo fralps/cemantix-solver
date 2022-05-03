@@ -1,26 +1,26 @@
-name: Reverse brute solver
-on:
-  push:
-    branches:
-      - 'main'
-  schedule:
-    - cron: '0 2 * * *'
+# name: Reverse brute solver
+# on:
+#   push:
+#     branches:
+#       - 'main'
+#   schedule:
+#     - cron: '0 2 * * *'
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
 
-    steps:
-      - name: ⚙️ Checkout repo
-        uses: actions/checkout@v2
-      - name: 🐍  Setup Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.8
-      - name: 🧰 Install dependencies
-        run: |
-          pip3 install requests
-          pip3 install python-dotenv
-      - name: 🏋️‍♂️ Execute reverse brute python script
-        run: |
-          python3 reverse_brute.py
+#     steps:
+#       - name: ⚙️ Checkout repo
+#         uses: actions/checkout@v2
+#       - name: 🐍  Setup Python
+#         uses: actions/setup-python@v2
+#         with:
+#           python-version: 3.8
+#       - name: 🧰 Install dependencies
+#         run: |
+#           pip3 install requests
+#           pip3 install python-dotenv
+#       - name: 🏋️‍♂️ Execute reverse brute python script
+#         run: |
+#           python3 reverse_brute.py
