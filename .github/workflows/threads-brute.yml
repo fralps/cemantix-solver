@@ -19,7 +19,7 @@ jobs:
           python-version: 3.8
       - name: 🧰 Install dependencies
         run: |
-          pip3 install requests python-dotenv numpy time datetime
+          pip3 install requests python-dotenv numpy datetime
       - name: 🏋️‍♂️ Execute multi-threading brute python script
         run: |
           python3 threads_brute.py
