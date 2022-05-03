@@ -19,8 +19,7 @@
 #           python-version: 3.8
 #       - name: 🧰 Install dependencies
 #         run: |
-#           pip3 install requests
-#           pip3 install python-dotenv
+#           pip3 install requests python-dotenv
 #       - name: 🏋️‍♂️ Execute brute python script
 #         run: |
 #           python3 brute.py
