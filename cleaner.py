@@ -26,8 +26,7 @@ headers['User-Agent'] = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/5
 
 # Iterating through the txt list
 def main():
-  # for word in words[words.index('pompages'):]:
-  for word in words:
+  for word in words[words.index('austerlitz'):]:
     data = f'word={word}'.encode('utf-8')
     resp = requests.post(url, headers=headers, data=data)
     score = resp.json()
