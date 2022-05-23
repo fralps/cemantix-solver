@@ -6320,6 +6320,7 @@ générateur
 génération
 généreusement
 généreux
+générer
 générique
 générosité
 genèse
