@@ -24,7 +24,7 @@ exit_event = threading.Event()
 
 # Parse the txt file,
 # and store the words in a list
-with open('dictionnaries/english3.txt') as file:
+with open('dictionnaries/en/en_tiny_list.txt') as file:
   line = file.readline()
   while line:
     line = file.readline()
