@@ -89,6 +89,7 @@ def solve(random, reversed):
 def send_to_notion(word, time, count):
   API_ENDPOINT = 'https://api.notion.com/v1/pages'
   HEADERS =  {'Authorization': f"Bearer {NOTION_TOKEN}", 'Content-Type': 'application/json' ,'Notion-Version': '2021-08-16'}
+  timestamp = datetime.datetime.now()
 
   body = {
     'parent': { 'database_id': f"{DATABASE_ID}" },
@@ -108,6 +109,10 @@ def send_to_notion(word, time, count):
       'Date': {
         'type': 'rich_text',
         'rich_text': [{ 'type': 'text', 'text': { 'content': date.today().strftime('%d/%m/%Y') } }]
+      },
+      'Timestamp': {
+        'type': 'rich_text',
+        'rich_text': [{ 'type': 'text', 'text': { 'content': f"{timestamp}" } }]
       }
     }
   }
