@@ -14,7 +14,7 @@ load_dotenv()
 
 # ENV variables for Notion integration
 NOTION_TOKEN = os.getenv('NOTION_TOKEN')
-DATABASE_ID = os.getenv('CEMANTLE_DATABASE_ID')
+CEMANTLE_DATABASE_ID = os.getenv('CEMANTLE_DATABASE_ID')
 
 # Prepare timer, words list, counter and threads exit event
 start = time.time()
@@ -89,9 +89,10 @@ def solve(random, reversed):
 def send_to_notion(word, time, count):
   API_ENDPOINT = 'https://api.notion.com/v1/pages'
   HEADERS =  {'Authorization': f"Bearer {NOTION_TOKEN}", 'Content-Type': 'application/json' ,'Notion-Version': '2021-08-16'}
+  timestamp = datetime.datetime.now()
 
   body = {
-    'parent': { 'database_id': f"{DATABASE_ID}" },
+    'parent': { 'database_id': f"{CEMANTLE_DATABASE_ID}" },
     'properties': {
       'Word': {
         'type': 'rich_text',
@@ -108,6 +109,10 @@ def send_to_notion(word, time, count):
       'Date': {
         'type': 'rich_text',
         'rich_text': [{ 'type': 'text', 'text': { 'content': date.today().strftime('%d/%m/%Y') } }]
+      },
+      'Timestamp': {
+        'type': 'rich_text',
+        'rich_text': [{ 'type': 'text', 'text': { 'content': f"{timestamp}" } }]
       }
     }
   }
