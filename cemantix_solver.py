@@ -13,7 +13,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # ENV variables for Notion integration
-NOTION_TOKEN = os.getenv('NOTION_TOKEN')
+CEMANTIX_NOTION_TOKEN = os.getenv('CEMANTIX_NOTION_TOKEN')
 DATABASE_ID = os.getenv('DATABASE_ID')
 
 # Prepare timer, words list, counter and threads exit event
@@ -88,7 +88,7 @@ def solve(random, reversed):
       
 def send_to_notion(word, time, count):
   API_ENDPOINT = 'https://api.notion.com/v1/pages'
-  HEADERS =  {'Authorization': f"Bearer {NOTION_TOKEN}", 'Content-Type': 'application/json' ,'Notion-Version': '2021-08-16'}
+  HEADERS =  {'Authorization': f"Bearer {CEMANTIX_NOTION_TOKEN}", 'Content-Type': 'application/json' ,'Notion-Version': '2021-08-16'}
   timestamp = datetime.datetime.now()
 
   body = {

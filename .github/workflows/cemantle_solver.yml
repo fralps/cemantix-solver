@@ -20,5 +20,5 @@ jobs:
         run: |
           python3 cemantle_solver.py
         env:
-          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          CEMANTIX_NOTION_TOKEN: ${{ secrets.CEMANTLE_NOTION_TOKEN }}
           DATABASE_ID: ${{ secrets.CEMANTLE_DATABASE_ID }}
