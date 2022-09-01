@@ -83,7 +83,6 @@ def solve(random, reversed):
         print(f'\033[1;32mResult: {word} 🥳 in {str(datetime.timedelta(seconds = end - start))} after {count} attempts')
 
         send_to_notion(word, str(datetime.timedelta(seconds = end - start)), count)
-        send_email_notification(word)
 
         exit_event.set()
         break
