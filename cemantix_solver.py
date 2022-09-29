@@ -9,13 +9,11 @@ import datetime
 from datetime import date
 import json
 from dotenv import load_dotenv
-from trycourier import Courier
 
 load_dotenv()
 
 # ENV variables for Notion integration
 CEMANTIX_NOTION_TOKEN = os.getenv('CEMANTIX_NOTION_TOKEN')
-COURIER_AUTH_TOKEN = os.getenv('COURIER_AUTH_TOKEN')
 DATABASE_ID = os.getenv('DATABASE_ID')
 
 # Prepare timer, words list, counter and threads exit event
@@ -51,7 +49,7 @@ def main():
   threading.Thread(target=solve, args=[True, True]).start()
   
   # Random threads
-  for i in range(40):
+  for i in range(45):
     print(f"Starting thread n°{i + 1}")
     threading.Thread(target=solve, args=[True, False]).start()
 
@@ -126,23 +124,5 @@ def send_to_notion(word, time, count):
   
   if response.status_code == 200:
     print(f'\033[1;32mNotion entry successfully created')
-    
-def send_email_notification(word):
-  client = Courier(auth_token=COURIER_AUTH_TOKEN)
-
-  client.send_message(
-    message={
-      'to': {
-        'email': 'francois.loupias@orange.fr',
-      },
-      'template': 'BX480CSCMY4D0APA7M6XCWP3PSDT',
-      'data': {
-        'recipientName': 'Fralps',
-        'word': word,
-      },
-    }
-  )
-
-  print('Email sent')
   
 main()
