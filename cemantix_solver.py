@@ -14,7 +14,7 @@ load_dotenv()
 
 # ENV variables for Notion integration
 CEMANTIX_NOTION_TOKEN = os.getenv("CEMANTIX_NOTION_TOKEN")
-DATABASE_ID = os.getenv("DATABASE_ID")
+DATABASE_ID = os.getenv("CEMANTIX_DATABASE_ID")
 
 # Prepare timer, words list, counter and threads exit event
 start = time.time()

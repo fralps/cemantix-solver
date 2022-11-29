@@ -1,7 +1,7 @@
 name: Threading Notion stats brute solver for Cemantix
 on:
   schedule:
-    - cron: '0 1 * * *'
+    - cron: "0 1 * * *"
 
 jobs:
   build:
@@ -22,4 +22,4 @@ jobs:
           python3 cemantix_solver.py
         env:
           CEMANTIX_NOTION_TOKEN: ${{ secrets.CEMANTIX_NOTION_TOKEN }}
-          DATABASE_ID: ${{ secrets.DATABASE_ID }}
+          CEMANTIX_DATABASE_ID: ${{ secrets.CEMANTIX_DATABASE_ID }}
