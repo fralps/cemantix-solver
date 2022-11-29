@@ -14,7 +14,7 @@ load_dotenv()
 
 # ENV variables for Notion integration
 CEMANTIX_NOTION_TOKEN = os.getenv("CEMANTIX_NOTION_TOKEN")
-DATABASE_ID = os.getenv("CEMANTIX_DATABASE_ID")
+CEMANTIX_DATABASE_ID = os.getenv("CEMANTIX_DATABASE_ID")
 
 # Prepare timer, words list, counter and threads exit event
 start = time.time()
@@ -51,7 +51,7 @@ def main():
     threading.Thread(target=solve, args=[True, True]).start()
 
     # Random threads
-    for i in range(45):
+    for i in range(50):
         print(f"Starting thread n°{i + 1}")
         threading.Thread(target=solve, args=[True, False]).start()
 
@@ -107,7 +107,7 @@ def send_to_notion(word, time, count):
     timestamp = datetime.datetime.now()
 
     body = {
-        "parent": {"database_id": f"{DATABASE_ID}"},
+        "parent": {"database_id": f"{CEMANTIX_DATABASE_ID}"},
         "properties": {
             "Word": {
                 "type": "rich_text",
