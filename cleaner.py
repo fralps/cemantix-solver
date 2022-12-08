@@ -1,3 +1,6 @@
+# Used for cleaning initial dictionnaries for words that were not found by cemantix/cemantle API.
+# This script returns a file .txt with words that return a 200 HTTP response from cemantix/cemantle API
+
 # Modules definitions
 import requests
 from requests.structures import CaseInsensitiveDict
@@ -7,7 +10,7 @@ words = []
 
 # Parse the txt file,
 # and store the words in a list
-with open('dictionnaries/english3.txt') as f:
+with open('dictionnaries/to-clean/english3.txt') as f:
   line = f.readline()
   while line:
     line = f.readline()
@@ -26,7 +29,6 @@ headers['User-Agent'] = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/5
 
 # Iterating through the txt list
 def main():
-  # for word in words[words.index('wheelings'):]:
   for word in words:
     data = f'word={word}'.encode('utf-8')
     resp = requests.post(url, headers=headers, data=data)

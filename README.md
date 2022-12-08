@@ -2,7 +2,10 @@
 
 *Python scripts to find Cemantix and Cemantle daily word by brute forcing apps api.*
 
-ℹ️ *Disclaimer: I did this project to learn Python basics, so feel free to give me your feebacks*
+ℹ️ *Disclaimer: I did this project to learn Python basics, so feel free to give me your feedbacks*
+
+- [Cemantix results Notion database](https://bead-cylinder-699.notion.site/fe486d80a5994c02af48af8dbe3d4f96?v=59ad4e14485d477da756a04999190730)
+- [Cemantle results Notion database](https://bead-cylinder-699.notion.site/6440b74a3e6f4d9c9819e0e40eb6613d?v=4db027d34f11496ca09786f996703914)
 
 ### Requirements
 
@@ -34,9 +37,18 @@ CEMANTIX_NOTION_TOKEN = your-cemantIX-notion-token
 You can find all words in the `./dictionnaries` folder for French and English locales. There are two dictionnaries available for each locale: one fat list with many words and another one with less word.
 
 ### Github Actions
-We use Github Actions to run scripts to find word everyday and fill Notion database
+
+We use Github Actions to run scripts to find word everyday and fill Notion databases.
 
 Workflows can be found in `.github/workflows` folder.
 
+### Others
+
+`cleaner.py` was used to clean initial dictionnaries for words that were not found by cemantix/cemantle API. You can use `cleaner.py` if you want to add another dictionnary.
+
 ### Contribute
 Please feel free to open PR with your awesome ideas 💡
+
+### Thanks
+
+You can go to the awesome websites of [Cemantix](https://cemantix.certitudes.org/) and [Cemantle](https://cemantle.certitudes.org/) made by David Turner and maintained by [Julie](https://twitter.com/cemantle) and [enigmatix](https://twitter.com/enigmathix).
