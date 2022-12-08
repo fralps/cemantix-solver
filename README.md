@@ -1,4 +1,4 @@
-# cemantix-solver/cemantle-solver
+# cemantix-solver/cemantle-solver 🐍
 
 *Python scripts to find Cemantix and Cemantle daily word by brute forcing apps api.*
 
@@ -27,6 +27,11 @@ CEMANTIX_DATABASE_ID = your-cemantix-database-id
 CEMANTLE_NOTION_TOKEN = your-cemantle-notion-token
 CEMANTIX_NOTION_TOKEN = your-cemantIX-notion-token
 ```
+
+**or**
+
+If you do not have a Notion database, you can simply comment the `send_to_notion()` function call in the scripts and see the result directly in your terminal 🤓
+
 
 3. Finally, you can run scripts with the following commands lines:
 - Cemantix --> `python3 cemantix-solver.py`
