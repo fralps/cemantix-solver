@@ -1,7 +1,7 @@
 name: Threading Notion stats brute solver for Cemantle
 on:
   schedule:
-    - cron: "0 1 * * *"
+    - cron: "0 11 * * *"
 
 jobs:
   build:
