@@ -329,6 +329,7 @@ adaptation
 adapter
 addenda
 addition
+additionnel
 additionner
 adepte
 adéquat
