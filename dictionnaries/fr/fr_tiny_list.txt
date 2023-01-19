@@ -10635,6 +10635,8 @@ pronostic
 pronostiquer
 propagande
 propagandiste
+propagateur
+propagation
 propager
 propension
 prophète
