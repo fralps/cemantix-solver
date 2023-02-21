@@ -572,6 +572,7 @@ aliéniste
 aligné
 alignement
 aligner
+aliment
 alimentaire
 alimentation
 alimenter
