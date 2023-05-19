@@ -1,6 +1,6 @@
 # cemantix-solver/cemantle-solver 🐍
 
-*Python scripts to find Cemantix and Cemantle daily word by brute forcing apps api.*
+*Python scripts to find Cemantix and Cemantle daily word by brute forcing apps api.* 
 
 ℹ️ *Disclaimer: I did this project to learn Python basics, so feel free to give me your feedbacks*
 
