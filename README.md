@@ -10,7 +10,7 @@
 ### Requirements
 
 - Python version: `>= 3`
-- Pip version: `22.3`
+- Pip version: `23.0.1`
 
 ### Getting started
 
