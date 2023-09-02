@@ -54,6 +54,6 @@ Workflows can be found in `.github/workflows` folder.
 ### Contribute
 Please feel free to open PR with your awesome ideas 💡
 
-### Thanks
+### Thanks 🙏🏼
 
 You can go to the awesome websites of [Cemantix](https://cemantix.certitudes.org/) and [Cemantle](https://cemantle.certitudes.org/) made by David Turner and maintained by [Julie](https://twitter.com/cemantle) and [enigmatix](https://twitter.com/enigmathix).
