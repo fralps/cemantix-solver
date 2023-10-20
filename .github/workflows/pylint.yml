@@ -14,7 +14,7 @@ jobs:
     - name: 🔧 Install dependencies
       run: |
         pip install --upgrade pip
-        pip3 install requests python-dotenv numpy datetime
+        pip3 install requests python-dotenv numpy datetime pylint
     - name: 🔬 Analysing code with Pylint
       run: |
         pylint $(git ls-files '*.py')
