@@ -5635,6 +5635,7 @@ fabrique
 fabriquer
 fabuleux
 fac
+façade
 face
 facétie
 facétieusement
