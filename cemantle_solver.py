@@ -1,4 +1,4 @@
-# pylint: disable=W0603, W0622, W0621, C0103, C0301
+# pylint: disable=W0603, W0622, W0621, C0103, C0301, R0801
 """Modules definitions"""
 import os
 import threading
