@@ -1,13 +1,14 @@
-# Modules definitions
+# pylint: disable=W0603, W0622, W0621, C0103, C0301
+"""Modules definitions"""
 import os
-import requests
 import threading
-from requests.structures import CaseInsensitiveDict
-import numpy as np
 import time
 import datetime
 from datetime import date
 import json
+import requests
+from requests.structures import CaseInsensitiveDict
+import numpy as np
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -24,7 +25,7 @@ exit_event = threading.Event()
 
 # Parse the txt file,
 # and store the words in a list
-with open("dictionnaries/fr/fr_tiny_list.txt") as file:
+with open("dictionnaries/fr/fr_tiny_list.txt", encoding="utf-8") as file:
     line = file.readline()
     while line:
         line = file.readline()
@@ -45,7 +46,7 @@ headers[
 
 # Run script and threads definitions
 def main():
-    # Normal threads
+    """Normal threads"""
     threading.Thread(target=solve, args=[False, False]).start()
     threading.Thread(target=solve, args=[False, True]).start()
     threading.Thread(target=solve, args=[True, True]).start()
@@ -58,7 +59,7 @@ def main():
 
 # Solve and find word of the day
 def solve(random, reversed):
-    # Take words from the list and randomize them with shuffle
+    """Take words from the list and randomize them with shuffle"""
     if random:
         list = np.array(words)
         np.random.shuffle(list)
@@ -70,7 +71,7 @@ def solve(random, reversed):
 
     for word in list:
         data = f"word={word}".encode("utf-8")
-        resp = requests.post(url, headers=headers, data=data)
+        resp = requests.post(url, headers=headers, data=data, timeout=30)
         score = resp.json()
 
         if "score" in score:
@@ -96,10 +97,10 @@ def solve(random, reversed):
             if exit_event.is_set():
                 break
 
-
 def send_to_notion(word, time, count):
-    API_ENDPOINT = "https://api.notion.com/v1/pages"
-    HEADERS = {
+    """Send new word to Notion API"""
+    api_endpoint = "https://api.notion.com/v1/pages"
+    notion_headers = {
         "Authorization": f"Bearer {CEMANTIX_NOTION_TOKEN}",
         "Content-Type": "application/json",
         "Notion-Version": "2021-08-16",
@@ -134,10 +135,10 @@ def send_to_notion(word, time, count):
         },
     }
 
-    response = requests.post(API_ENDPOINT, data=json.dumps(body), headers=HEADERS)
+    response = requests.post(api_endpoint, data=json.dumps(body), headers=notion_headers, timeout=30)
 
     if response.status_code == 200:
-        print(f"\033[1;32mNotion entry successfully created")
+        print("\033[1;32mNotion entry successfully created")
 
 
 main()
