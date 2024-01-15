@@ -52,7 +52,7 @@ def main():
     threading.Thread(target=solve, args=[True, True]).start()
 
     # Random threads
-    for i in range(20):
+    for i in range(25):
         print(f"Starting thread n°{i + 1}")
         threading.Thread(target=solve, args=[True, False]).start()
 
