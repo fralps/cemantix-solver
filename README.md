@@ -11,6 +11,7 @@
 
 - Python version: `>= 3`
 - Pip version: `23.0.1`
+- Notion account
 
 ### Getting started
 
