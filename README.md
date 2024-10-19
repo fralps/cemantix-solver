@@ -42,7 +42,7 @@ If you do not have a Notion database, you can simply comment the `send_to_notion
 
 You can find all words in the `./dictionnaries` folder for French and English locales. There are two dictionnaries available for each locale: one fat list with many words and another one with less word.
 
-### Github Actions
+### Github Actions 🤖
 
 We use Github Actions to run scripts to find word everyday and fill Notion databases.
 
