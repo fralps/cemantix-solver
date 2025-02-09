@@ -53,7 +53,7 @@ Workflows can be found in `.github/workflows` folder.
 `cleaner.py` was used to clean initial dictionnaries for words that were not found by cemantix/cemantle API. You can use `cleaner.py` if you want to add another dictionnary.
 
 ### Contribute
-Please feel free to open PR with your awesome ideas 💡🔥
+Please feel free to open PR with your awesome ideas 💡🔥🤓
 
 ### Thanks 🙏🏼 
 
