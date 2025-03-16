@@ -48,7 +48,7 @@ headers[
 def get_puzzle_number():
     """Fetches the current puzzle number from the Cemantix website."""
     puzzleUrl = "https://cemantix.certitudes.org/"
-    response = requests.get(puzzleUrl)
+    response = requests.get(puzzleUrl, headers=headers, timeout=30)
 
     if response.status_code == 200:
         # Extraire le data-puzzle-number avec une regex
