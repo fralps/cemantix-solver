@@ -1,6 +1,6 @@
 # cemantix-solver/cemantle-solver 🐍
 
-*Python scripts to find Cemantix and Cemantle daily word by brute forcing apps api.* 
+*Python scripts to find Cemantix and Cemantle daily word by brute forcing apps api.*
 
 ℹ️ *Disclaimer: I did this project to learn Python basics, so feel free to give me your feedbacks*
 
@@ -16,12 +16,15 @@
 ### Getting started
 
 1. You will need the following packages in order to make scripts work:
+
 - `requests` --> `pip3 install requests`
+- `re` --> `pip3 install re`
 - `python-dotenv` --> `pip3 install python-dotenv`
 - `numpy` --> `pip3 install numpy`
 - `datetime` --> `pip3 install datetime`
 
-2. Then, you can add a `.env` file at the root of your folder with those env variables:
+1. Then, you can add a `.env` file at the root of your folder with those env variables:
+
 ```
 CEMANTLE_DATABASE_ID = your-cemantle-database-id
 CEMANTIX_DATABASE_ID = your-cemantix-database-id
@@ -33,8 +36,8 @@ CEMANTIX_NOTION_TOKEN = your-cemantIX-notion-token
 
 If you do not have a Notion database, you can simply comment the `send_to_notion()` function call in the scripts and see the result directly in your terminal 🤓
 
-
 3. Finally, you can run scripts with the following commands lines:
+
 - Cemantix --> `python3 cemantix-solver.py`
 - Cemantle --> `python3 cemantle-solver.py`
 
@@ -53,8 +56,9 @@ Workflows can be found in `.github/workflows` folder.
 `cleaner.py` was used to clean initial dictionnaries for words that were not found by cemantix/cemantle API. You can use `cleaner.py` if you want to add another dictionnary.
 
 ### Contribute
+
 Please feel free to open PR with your awesome ideas 💡🔥🤓
 
-### Thanks 🙏🏼 
+### Thanks 🙏🏼
 
 You can go to the awesome websites of [Cemantix](https://cemantix.certitudes.org/) and [Cemantle](https://cemantle.certitudes.org/) made by David Turner and maintained by [Julie](https://twitter.com/cemantle) and [enigmatix](https://twitter.com/enigmathix).

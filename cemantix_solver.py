@@ -1,5 +1,6 @@
 # pylint: disable=W0603, W0622, W0621, C0103, C0301, R0801
 """Modules definitions"""
+import re
 import os
 import threading
 import time
@@ -19,8 +20,10 @@ CEMANTIX_DATABASE_ID = os.getenv("CEMANTIX_DATABASE_ID")
 
 # Prepare timer, words list, counter and threads exit event
 start = time.time()
+puzzle_number = 0
 words = []
 count = 0
+url = ""
 exit_event = threading.Event()
 
 # Parse the txt file,
@@ -30,9 +33,6 @@ with open("dictionnaries/fr/fr_tiny_list.txt", encoding="utf-8") as file:
     while line:
         line = file.readline()
         words.append(line.rstrip("\n"))
-
-# Cemantix API URL
-url = "https://cemantix.certitudes.org/score"
 
 # Headers definitions
 headers = CaseInsensitiveDict()
@@ -44,9 +44,33 @@ headers[
     "User-Agent"
 ] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36"
 
+
+def get_puzzle_number():
+    """Fetches the current puzzle number from the Cemantix website."""
+    puzzleUrl = "https://cemantix.certitudes.org/"
+    response = requests.get(puzzleUrl)
+
+    if response.status_code == 200:
+        # Extraire le data-puzzle-number avec une regex
+        match = re.search(r'data-puzzle-number="(\d+)"', response.text)
+        if match:
+            puzzle_number = match.group(1)
+            print("Puzzle Number:", puzzle_number)
+            global url
+            url = f"https://cemantix.certitudes.org/score?n={puzzle_number}"
+        else:
+            print("Puzzle number not found.")
+    elif response.status_code == 403:
+        print("Access denied. Please check your IP address.")
+    else:
+        print("Failed to fetch the page.")
+
 # Run script and threads definitions
+
+
 def main():
-    """Normal threads"""
+    """Main function to start the threads"""
+    get_puzzle_number()
     threading.Thread(target=solve, args=[False, False]).start()
     threading.Thread(target=solve, args=[False, True]).start()
     threading.Thread(target=solve, args=[True, True]).start()
@@ -74,16 +98,16 @@ def solve(random, reversed):
         resp = requests.post(url, headers=headers, data=data, timeout=30)
         score = resp.json()
 
-        if "score" in score:
-            print(f"\033[0;37m{word} ➡️ {score['score']}")
+        if "s" in score:
+            print(f"\033[0;37m{word} ➡️ {score['s']}")
             global count
             count += 1
-            if score["score"] == 1:
+            if score["s"] == 1:
                 end = time.time()
                 os.system("clear")
 
                 print(
-                    f"\033[1;32mResult: {word} 🥳 in {str(datetime.timedelta(seconds = end - start))} after {count} attempts"
+                    f"\033[1;32mResult: {word} 🥳 in {str(datetime.timedelta(seconds=end - start))} after {count} attempts"
                 )
 
                 send_to_notion(
@@ -96,6 +120,7 @@ def solve(random, reversed):
             # Stopping remaining threads if the word is found
             if exit_event.is_set():
                 break
+
 
 def send_to_notion(word, time, count):
     """Send new word to Notion API"""
@@ -135,7 +160,8 @@ def send_to_notion(word, time, count):
         },
     }
 
-    response = requests.post(api_endpoint, data=json.dumps(body), headers=notion_headers, timeout=30)
+    response = requests.post(api_endpoint, data=json.dumps(
+        body), headers=notion_headers, timeout=30)
 
     if response.status_code == 200:
         print("\033[1;32mNotion entry successfully created")
