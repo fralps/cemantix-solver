@@ -16,7 +16,7 @@ jobs:
           python-version: '3.10'
       - name: 🧰 Install dependencies
         run: |
-          pip3 install requests re python-dotenv numpy datetime
+          pip3 install requests python-dotenv numpy datetime
       - name: 🏋️‍♂️ Execute multi-threading brute python script
         run: |
           python3 cemantix_solver.py
