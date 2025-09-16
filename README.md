@@ -26,10 +26,10 @@
 1. Then, you can add a `.env` file at the root of your folder with those env variables:
 
 ```
-CEMANTLE_DATABASE_ID = your-cemantle-database-id
-CEMANTIX_DATABASE_ID = your-cemantix-database-id
-CEMANTLE_NOTION_TOKEN = your-cemantle-notion-token
-CEMANTIX_NOTION_TOKEN = your-cemantIX-notion-token
+CEMANTLE_DATABASE_ID=your-cemantle-database-id
+CEMANTIX_DATABASE_ID=your-cemantix-database-id
+CEMANTLE_NOTION_TOKEN=your-cemantle-notion-token
+CEMANTIX_NOTION_TOKEN=your-cemantIX-notion-token
 ```
 
 **or**
