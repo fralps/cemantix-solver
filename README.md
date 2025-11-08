@@ -57,7 +57,7 @@ Workflows can be found in `.github/workflows` folder.
 
 ### Contribute
 
-Please feel free to open PR with your awesome ideas 💡🔥🤓🚀
+Please feel free to open PR with your awesome ideas 💡🔥🤓🚀⌨️
 
 ### Thanks 🙏🏼
 
